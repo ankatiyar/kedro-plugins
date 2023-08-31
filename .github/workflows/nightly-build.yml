@@ -32,7 +32,7 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           label-name: "tests failed"
-          title-template: "Kedro-Airflow: Nightly build failure"
+          title-template: "`kedro-airflow`: Nightly build failure"
           body-template: |
             GitHub Actions workflow [{{workflow}} #{{runNumber}}](https://github.com/{{repo.owner}}/{{repo.repo}}/actions/runs/{{runId}}) failed.
           create-label: true
@@ -50,7 +50,7 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           label-name: "tests failed"
-          title-template: "Kedro-Datasets: Nightly build failure"
+          title-template: "`kedro-datasets`: Nightly build failure"
           body-template: |
             GitHub Actions workflow [{{workflow}} #{{runNumber}}](https://github.com/{{repo.owner}}/{{repo.repo}}/actions/runs/{{runId}}) failed.
           create-label: true
@@ -68,7 +68,7 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           label-name: "tests failed"
-          title-template: "Kedro-Docker: Nightly build failure"
+          title-template: "`kedro-docker`: Nightly build failure"
           body-template: |
             GitHub Actions workflow [{{workflow}} #{{runNumber}}](https://github.com/{{repo.owner}}/{{repo.repo}}/actions/runs/{{runId}}) failed.
           create-label: true
@@ -86,7 +86,7 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           label-name: "tests failed"
-          title-template: "Kedro-Airflow: Nightly build failure"
+          title-template: "`kedro-telemetry`: Nightly build failure"
           body-template: |
             GitHub Actions workflow [{{workflow}} #{{runNumber}}](https://github.com/{{repo.owner}}/{{repo.repo}}/actions/runs/{{runId}}) failed.
           create-label: true
