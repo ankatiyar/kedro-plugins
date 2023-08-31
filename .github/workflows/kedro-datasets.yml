@@ -16,7 +16,7 @@ on:
       - "kedro-airflow/**"
       - "kedro-docker/**"
       - "kedro-telemetry/**"
-  
+
 jobs:
   unit-tests:
     strategy:

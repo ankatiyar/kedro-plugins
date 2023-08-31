@@ -16,7 +16,7 @@ on:
       - "kedro-datasets/**"
       - "kedro-docker/**"
       - "kedro-telemetry/**"
-  
+
 jobs:
   unit-tests:
     strategy:
