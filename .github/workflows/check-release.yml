@@ -33,22 +33,22 @@ jobs:
 
   airflow-test:
     needs: check-version
-    if: ${{ needs.check-version.outputs.new_release == 'true' }} && ${{ needs.check-version.outputs.package_name == 'kedro-airflow' }}
+    if: ${{ needs.check-version.outputs.new_release == 'true' &&  needs.check-version.outputs.package_name == 'kedro-airflow' }}
     uses: ./.github/workflows/kedro-airflow.yml
-    
+
   datasets-test:
     needs: check-version
-    if: ${{ needs.check-version.outputs.new_release == 'true' }} && ${{ needs.check-version.outputs.package_name == 'kedro-datasets' }}
+    if: ${{ needs.check-version.outputs.new_release == 'true'  &&  needs.check-version.outputs.package_name == 'kedro-datasets' }}
     uses: ./.github/workflows/kedro-datasets.yml
-    
+
   docker-test:
     needs: check-version
-    if: ${{ needs.check-version.outputs.new_release == 'true' }} && ${{ needs.check-version.outputs.package_name == 'kedro-docker' }}
+    if: ${{ needs.check-version.outputs.new_release == 'true'  &&  needs.check-version.outputs.package_name == 'kedro-docker' }}
     uses: ./.github/workflows/kedro-docker.yml
-      
+
   telemetry-test:
     needs: check-version
-    if: ${{ needs.check-version.outputs.new_release == 'true' }} && ${{ needs.check-version.outputs.package_name == 'kedro-telemetry' }}
+    if: ${{ needs.check-version.outputs.new_release == 'true'  &&  needs.check-version.outputs.package_name == 'kedro-telemetry' }}
     uses: ./.github/workflows/kedro-telemetry.yml
 
   build-publish:
@@ -57,5 +57,3 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-    
-  
