@@ -53,7 +53,11 @@ jobs:
 
   build-publish:
     needs: [ check-version, airflow-test, docker-test, datasets-test, telemetry-test ]
-    if: ${{ needs.check-version.outputs.new_release == 'true' }}
+    if: |
+      always() &&
+      !contains(needs.*.result, 'failure') &&
+      !contains(needs.*.result, 'cancelled') &&
+      needs.check-version.outputs.new_release == 'true' 
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
