@@ -33,6 +33,7 @@ jobs:
 
   test:
     needs: check-version
+    runs-on: ubuntu-latest
     if: ${{ needs.check-version.outputs.new_release == 'true' }}
     steps:
       - name: Run airflow tests
