@@ -12,9 +12,6 @@ on:
 
 jobs:
   e2e-tests:
-    defaults:
-      run:
-        shell: bash
     runs-on: ${{ inputs.os }}
     steps:
       - name: Checkout code

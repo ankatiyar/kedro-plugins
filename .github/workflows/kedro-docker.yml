@@ -22,9 +22,6 @@ on:
 
 jobs:
   unit-tests:
-    defaults:
-      run:
-        shell: bash
     strategy:
       matrix:
         os: [ ubuntu-latest, windows-latest ]
@@ -36,9 +33,6 @@ jobs:
       python-version: ${{ matrix.python-version }}
 
   lint:
-    defaults:
-      run:
-        shell: bash
     uses: ./.github/workflows/lint.yml
     with:
       plugin: kedro-docker
@@ -46,9 +40,6 @@ jobs:
       python-version: "3.8"
 
   e2e-tests:
-    defaults:
-      run:
-        shell: bash
     strategy:
       matrix:
         os: [ ubuntu-latest, windows-latest ]
