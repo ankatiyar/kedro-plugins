@@ -3,7 +3,7 @@ name: Run nightly tests on all plugins
 on:
   schedule:
     # Run every day at midnight (UTC time)
-    - cron: '20,22,25,29,30,35,40 * * * *'
+    - cron: '50,53 * * * *'
 
 jobs:
   airflow-test:
@@ -13,6 +13,8 @@ jobs:
     uses: ./.github/workflows/kedro-telemetry.yml
 
   notify:
+    permissions:
+      issues: write
     name: Notify failed build
     needs: [ airflow-test, telemetry-test ]
     if: failure() 
