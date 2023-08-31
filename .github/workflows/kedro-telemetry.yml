@@ -16,10 +16,7 @@ on:
       - "kedro-airflow/**"
       - "kedro-datasets/**"
       - "kedro-docker/**"
-  schedule:
-    # Run every day at midnight (UTC time)
-    - cron: '0 0 * * *'
-
+  
 jobs:
   unit-tests:
     strategy:
