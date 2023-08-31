@@ -30,7 +30,7 @@ jobs:
       - uses: jayqi/failed-build-issue-action@v1
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          label-name: "tests failed"
+          label-name: "airflow nightly build"
           title-template: "`kedro-airflow`: Nightly build failure"
           body-template: |
             GitHub Actions workflow [{{workflow}} #{{runNumber}}](https://github.com/{{repo.owner}}/{{repo.repo}}/actions/runs/{{runId}}) failed.
@@ -48,7 +48,7 @@ jobs:
       - uses: jayqi/failed-build-issue-action@v1
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          label-name: "tests failed"
+          label-name: "datasets nightly build"
           title-template: "`kedro-datasets`: Nightly build failure"
           body-template: |
             GitHub Actions workflow [{{workflow}} #{{runNumber}}](https://github.com/{{repo.owner}}/{{repo.repo}}/actions/runs/{{runId}}) failed.
@@ -66,7 +66,7 @@ jobs:
       - uses: jayqi/failed-build-issue-action@v1
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          label-name: "tests failed"
+          label-name: "docker nightly build"
           title-template: "`kedro-docker`: Nightly build failure"
           body-template: |
             GitHub Actions workflow [{{workflow}} #{{runNumber}}](https://github.com/{{repo.owner}}/{{repo.repo}}/actions/runs/{{runId}}) failed.
@@ -84,7 +84,7 @@ jobs:
       - uses: jayqi/failed-build-issue-action@v1
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          label-name: "tests failed"
+          label-name: "telemetry nightly build"
           title-template: "`kedro-telemetry`: Nightly build failure"
           body-template: |
             GitHub Actions workflow [{{workflow}} #{{runNumber}}](https://github.com/{{repo.owner}}/{{repo.repo}}/actions/runs/{{runId}}) failed.
