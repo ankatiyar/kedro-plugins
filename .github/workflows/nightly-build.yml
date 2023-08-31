@@ -3,7 +3,7 @@ name: Run nightly tests on all plugins
 on:
   schedule:
     # Run every day at midnight (UTC time)
-    - cron: '50,53 * * * *'
+    - cron: '0,2,50,53,56,58 * * * *'
 
 jobs:
   airflow-test:
