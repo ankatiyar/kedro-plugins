@@ -1,0 +1,30 @@
+name: Run nightly tests on all plugins
+
+on:
+  schedule:
+    # Run every day at midnight (UTC time)
+    - cron: '20,22,25,30,35 22 * * *'
+
+jobs:
+  airflow-test:
+    uses: ./.github/workflows/kedro-airflow.yml
+
+  telemetry-test:
+    uses: ./.github/workflows/kedro-telemetry.yml
+
+  notify:
+    name: Notify failed build
+    needs: [ airflow-test, telemetry-test ]
+    if: failure() 
+    runs-on: ubuntu-latest
+    steps:
+      - uses: jayqi/failed-build-issue-action@v1
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          label-name: "build failed"
+          title-template: "Failed build: {{workflow}}"
+          body-template: |
+            GitHub Actions workflow [{{workflow}} #{{runNumber}}](https://github.com/{{repo.owner}}/{{repo.repo}}/actions/runs/{{runId}}) failed.
+            Event: {{eventName}}
+          create-label: true
+          always-create-new-issue: false
