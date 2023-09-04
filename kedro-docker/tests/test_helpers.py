@@ -100,7 +100,6 @@ class TestCopyTemplateFiles:
         assert "Creating" in captured.out
         assert "already exists" not in captured.out
         assert dest_file.exists()
-        raise
 
     def test_skip(self, tmp_path, capsys):
         """Test copying is skipped if destination path already exists"""

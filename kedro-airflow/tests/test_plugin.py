@@ -180,7 +180,6 @@ def test_custom_template_exists(cli_runner, metadata):
     assert result.exit_code == 0, (result.exit_code, result.stdout)
     assert dag_file.exists()
     assert dag_file.read_text() == expected_content
-    raise
 
 
 def test_custom_template_nonexistent(cli_runner, metadata):

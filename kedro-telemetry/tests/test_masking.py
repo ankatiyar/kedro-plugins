@@ -86,7 +86,6 @@ class TestCLIMasking:
         assert sorted(list(raw_cli_structure["kedro"])) == sorted(
             DEFAULT_KEDRO_COMMANDS
         )
-        raise
 
     def test_get_cli_structure_depth(self, mocker, fake_metadata):
         Module = namedtuple("Module", ["cli"])
