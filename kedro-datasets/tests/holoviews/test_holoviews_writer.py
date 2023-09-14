@@ -66,6 +66,7 @@ class TestHoloviewsWriter:
 
         fs_mock.assert_called_once_with("file", auto_mkdir=True, storage_option="value")
         assert writer._fs_open_args_save == fs_args["open_args_save"]
+        raise
 
     def test_load_fail(self, hv_writer):
         pattern = r"Loading not supported for 'HoloviewsWriter'"
