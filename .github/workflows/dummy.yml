@@ -22,7 +22,7 @@ jobs:
       issues: write
     name: Notify failed build for airflow
     needs: job1
-    if: failure()
+    if: ${{!success()}}
     runs-on: ubuntu-latest
     steps:
       - uses: jayqi/failed-build-issue-action@v1
