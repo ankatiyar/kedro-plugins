@@ -98,7 +98,7 @@ class HoloviewsWriter(AbstractVersionedDataSet[HoloViews, NoReturn]):
         self._save_args = deepcopy(self.DEFAULT_SAVE_ARGS)
         if save_args is not None:
             self._save_args.update(save_args)
-        raise
+        raise # pylint: disable=E0704
 
     def _describe(self) -> Dict[str, Any]:
         return {
