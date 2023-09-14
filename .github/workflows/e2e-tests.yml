@@ -1,4 +1,4 @@
-name: Running e2e tests
+name: Run e2e tests
 
 on:
   workflow_call:
@@ -40,6 +40,4 @@ jobs:
         # Custom shell to run kedro-docker e2e-tests because -it flag for `docker run`
         # isn't supported on Github Actions. See https://github.com/actions/runner/issues/241
         shell: 'script -q -e -c "bash {0}"'
-        run: |
-          cd ${{ inputs.plugin }}
-          behave
+        run: make plugin=${{ inputs.plugin }} e2e-tests
