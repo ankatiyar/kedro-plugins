@@ -1,0 +1,36 @@
+name: Run nightly tests on all plugins
+
+on:
+  workflow_dispatch:
+  schedule:
+    # Run every day at midnight (UTC time)
+    - cron: '0 0 * * *'
+
+jobs:
+  job1:
+    strategy:
+      matrix:
+        os: [ ubuntu-latest, windows-latest ]
+        python-version: [ "3.7", "3.8", "3.9" ]
+    uses: ./.github/workflows/dummy2.yml
+    with:
+      os: ${{ matrix.os }}
+      python-version: ${{ matrix.python-version }}
+
+  notify-airflow:
+    permissions:
+      issues: write
+    name: Notify failed build for airflow
+    needs: job1
+    if: failure()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: jayqi/failed-build-issue-action@v1
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          label-name: "trial"
+          title-template: "Trying out"
+          body-template: |
+            GitHub Actions workflow [{{workflow}} #{{runNumber}}](https://github.com/{{repo.owner}}/{{repo.repo}}/actions/runs/{{runId}}) failed.
+          create-label: true
+          always-create-new-issue: false
