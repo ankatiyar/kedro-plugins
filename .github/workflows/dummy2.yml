@@ -21,4 +21,4 @@ jobs:
           python-version: ${{inputs.python-version}}
       - name: Create annotation for build error
         if: inputs.os == 'ubuntu-latest'
-        run: echo "::error Whatever"
+        run: exit 1
